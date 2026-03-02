@@ -1,0 +1,240 @@
+
+/*Reset & Base*/
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    background: #1a1a1a;
+    font-family: 'Nunito', sans-serif;
+    overflow: hidden;
+}
+
+/*Full-Screen Container*/
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+
+/*Yellow Panel (form side)*/
+.yellow-panel {
+    background: #F5C518;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    padding: 60px 8vw;
+}
+
+/*Login: yellow is on the LEFT, wave clips toward the right*/
+.yellow-panel.clip-right {
+    flex: 1.1;
+    clip-path: ellipse(95% 100% at 0% 50%);
+}
+
+/*Register: yellow is on the RIGHT*/
+.yellow-panel.clip-left {
+    flex: 1.25;
+    order: 2;
+}
+
+/*Dark Panel (nav side)*/
+.dark-panel {
+    background: #2c2c2c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 12px;
+    padding: 60px 6vw;
+}
+
+/*Login: dark on the RIGHT*/
+.dark-panel.side-right {
+    flex: 0.9;
+    order: 2;
+}
+
+/* Register: dark on the LEFT, wave clips toward the right */
+.dark-panel.side-left {
+    flex: 0.75;
+    order: 1;
+    clip-path: ellipse(95% 100% at 100% 50%);
+}
+
+/*Dark Panel Text & Link*/
+.dark-panel p {
+    color: #F5C518;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.dark-panel a {
+    color: #9b82f8;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.dark-panel a:hover {
+    color: #c9b8ff;
+}
+
+/*Logo Area*/
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 32px;
+}
+
+/* Align right for Register page */
+.logo-area.align-right {
+    justify-content: flex-end;
+}
+
+.logo-img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 10px;
+    flex-shrink: 0;
+    /* Replace logo.png with your own image file */
+}
+
+.logo-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30px;
+    line-height: 1.1;
+    color: #1a1a1a;
+    letter-spacing: 1.5px;
+}
+
+.logo-text.text-right {
+    text-align: right;
+}
+
+/*Headings*/
+h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 56px;
+    color: #1a1a1a;
+    letter-spacing: 3px;
+    margin-bottom: 24px;
+}
+
+/*Form Layout*/
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+/*Labels*/
+label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/*Inputs*/
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 13px 16px;
+    background: #e8e0b0;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    color: #333;
+    outline: none;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(90, 50, 200, 0.25);
+}
+
+input::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+/*Buttons*/
+.btn {
+    margin-top: 10px;
+    padding: 13px 40px;
+    background: #4a2ef5;
+    color: #fff;
+    border: none;
+    border-radius: 9px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.btn:hover {
+    background: #3620c4;
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/*Alert Messages*/
+.msg {
+    font-size: 13px;
+    font-weight: 700;
+    padding: 9px 14px;
+    border-radius: 7px;
+    margin-bottom: 14px;
+    grid-column: 1 / -1;
+}
+
+.msg.error {
+    background: #ffe0e0;
+    color: #c0392b;
+}
+
+.msg.success {
+    background: #e0ffe8;
+    color: #1a7a3a;
+}
